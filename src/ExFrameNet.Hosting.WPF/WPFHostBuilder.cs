@@ -46,7 +46,7 @@ public class WPFHostBuilder
         HostConfiguration = new HostConfiguration(hostContext, Configuration, Services);
 
         Services.AddSingleton(AppContext);
-        Services.AddHostedService<HostedWPFAppService>();
+        Services.AddHostedService<HostedWPFApp>();
     }
 
     public WPFHost Build()

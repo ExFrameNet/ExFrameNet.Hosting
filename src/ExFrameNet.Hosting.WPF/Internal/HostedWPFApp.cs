@@ -1,21 +1,24 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using System.Windows;
 using System.Windows.Threading;
 
 namespace ExFrameNet.Hosting.WPF.Internal;
-internal class HostedWPFAppService : IHostedService
+internal class HostedWPFApp : IHostedService
 {
 
     private readonly IServiceProvider _services;
     private readonly WPFAppContext _appContext;
+    private readonly ILogger _logger;
     private Application? _app;
 
 
-    public HostedWPFAppService(IServiceProvider services, WPFAppContext context)
+    public HostedWPFApp(IServiceProvider services, WPFAppContext context, ILogger<HostedWPFApp> logger)
     {
         _services = services;
         _appContext = context;
+        _logger = logger;
     }
 
 
@@ -39,6 +42,7 @@ internal class HostedWPFAppService : IHostedService
         if (_appContext.IsRunning)
         {
             _appContext.IsRunning = false;
+            _logger.LogInformation("Shutdown app because the host was stoped");
             await _appContext.Dispatcher.InvokeAsync(() => _app?.Shutdown());
         }
     }
@@ -53,6 +57,8 @@ internal class HostedWPFAppService : IHostedService
         _appContext.Dispatcher = Dispatcher.CurrentDispatcher;
 
         app.Resources = new ResourceDictionary();
+
+        _logger.LogInformation("Starting application");
 
         var resActions = _services.GetService <IEnumerable<Action<ResourceDictionary>>>();
         foreach (var action in resActions)
@@ -77,7 +83,7 @@ internal class HostedWPFAppService : IHostedService
         {
             return;
         }
-        
+        _logger.LogInformation("Shutting down host because the app was closed");
         _services.GetService<IHostApplicationLifetime>()?.StopApplication();
     }
 }
