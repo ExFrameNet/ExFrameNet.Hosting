@@ -1,0 +1,52 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Create-Release
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  workflow_dispatch:
+  push:
+    tags: v*
+
+  # Allows you to run this workflow manually from the Actions tab
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  
+  build:
+    # The type of runner that the job will run on
+    runs-on: windows-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+        
+      - name: setup Git Version
+        uses: gittools/actions/gitversion/setup@v0.9.7
+        with:
+          versionSpec: '5.x'
+
+      - name: Get Version
+        id: gitversion
+        uses: gittools/actions/gitversion/execute@v0.9.7
+
+      - name: Setup .Net SDK
+        uses: actions/setup-dotnet@v2.0.0
+        
+      - name: Build project
+        run: dotnet build -c "Release"
+        
+      - name: Pack project
+        run: dotnet pack -c release /p:VersionPrefix=${{ steps.gitversion.outputs.nuGetVersionV2 }}
+            
+      - name: Publish Package
+        run: dotnet nuget push **/*.nupkg --skip-duplicate -s "https://api.nuget.org/v3/index.json" -k  ${{secrets.NUGET_API_KEY}}
+
+      # Runs a single command using the runners shell
+      
