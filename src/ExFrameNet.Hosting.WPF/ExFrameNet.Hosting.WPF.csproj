@@ -9,7 +9,7 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<Copyright>© Yannick Schrade 2022. All rights reserved.</Copyright>
+		<Copyright>Copyright © Yannick Schrade 2022. All rights reserved.</Copyright>
 		<RepositoryUrl>https://github.com/ExFrameNet/ExFrameNet.Hosting.WPF</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>WPF;Hosting</PackageTags>
