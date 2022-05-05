@@ -13,9 +13,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\ExFrameNet.Hosting.Plugins.Abstraction\ExFrameNet.Hosting.Plugins.Abstraction.csproj" />
-		<ProjectReference Include="..\ExFrameNet.Hosting.Plugins.Sample.Plugin\ExFrameNet.Hosting.Plugins.Sample.Plugin.csproj" />
-		<ProjectReference Include="..\ExFrameNet.Hosting.Plugins\ExFrameNet.Hosting.Plugins.csproj" />
+	  <ProjectReference Include="..\..\src\ExFrameNet.Hosting.Plugins\ExFrameNet.Hosting.Plugins.csproj" />
+	  <ProjectReference Include="..\ExFrameNet.Hosting.Plugins.Sample.Plugin\ExFrameNet.Hosting.Plugins.Sample.Plugin.csproj" />
 	</ItemGroup>
 
 </Project>
