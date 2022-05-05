@@ -32,6 +32,4 @@ jobs:
         with:
           artifacts: "src/**/*.nupkg"
           generateReleaseNotes: true
-          tag: v${{ steps.gitversion.outputs.nuGetVersionV2 }}
-          artifactErrorsFailBuild: true 
-      
+          artifactErrorsFailBuild: true
