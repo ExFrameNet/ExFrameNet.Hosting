@@ -22,12 +22,8 @@
 
 	
 	<ItemGroup>
+	  <PackageReference Include="ExFrameNet.Hosting.Plugins" Version="0.1.0" />
 	  <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
-	</ItemGroup>
-
-	
-	<ItemGroup>
-	  <ProjectReference Include="..\ExFrameNet.Hosting.Plugins\ExFrameNet.Hosting.Plugins.csproj" />
 	</ItemGroup>
 
 </Project>
