@@ -37,6 +37,7 @@ public sealed class PluginManager : IPluginManager
                 {
                     continue;
                 }
+                pluginInstance.RegisterServices(services);
                 _plugins.Add(plugin, pluginInstance);
             }
         }
