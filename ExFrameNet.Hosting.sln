@@ -1,0 +1,69 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32414.318
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E09668D0-9FB6-4E64-8296-1ADFDAA64F54}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExFrameNet.Hosting.WPF", "src\ExFrameNet.Hosting.WPF\ExFrameNet.Hosting.WPF.csproj", "{4B54AB7C-D098-4594-B410-3650726D2CA9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{B6B31D6A-C090-4AFD-9512-082BBF5401C8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExFrameNet.Hosting.Plugins", "src\ExFrameNet.Hosting.Plugins\ExFrameNet.Hosting.Plugins.csproj", "{A946D1BF-6F3A-43F5-A10C-576B23D15B39}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExFrameNet.Hosting.Plugins.Abstraction", "src\ExFrameNet.Hosting.Plugins.Abstraction\ExFrameNet.Hosting.Plugins.Abstraction.csproj", "{B5247E03-E0A2-40E3-BA69-1D9D911CD9B8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExFrameNet.Hosting.Plugins.Sample", "samples\ExFrameNet.Hosting.Plugins.Sample\ExFrameNet.Hosting.Plugins.Sample.csproj", "{A80F4829-2011-4863-B92E-044F0BC1F641}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExFrameNet.Hosting.Plugins.Sample.Plugin", "samples\ExFrameNet.Hosting.Plugins.Sample.Plugin\ExFrameNet.Hosting.Plugins.Sample.Plugin.csproj", "{626C03CA-3A74-4945-84B5-8192E77BDC9D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExFrameNet.Hosting.WPF.Sample", "samples\ExFrameNet.Hosting.WPF.Sample\ExFrameNet.Hosting.WPF.Sample.csproj", "{C274404E-1726-4778-BB0C-1F5C214A3CAC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4B54AB7C-D098-4594-B410-3650726D2CA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B54AB7C-D098-4594-B410-3650726D2CA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B54AB7C-D098-4594-B410-3650726D2CA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B54AB7C-D098-4594-B410-3650726D2CA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A946D1BF-6F3A-43F5-A10C-576B23D15B39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A946D1BF-6F3A-43F5-A10C-576B23D15B39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A946D1BF-6F3A-43F5-A10C-576B23D15B39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A946D1BF-6F3A-43F5-A10C-576B23D15B39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5247E03-E0A2-40E3-BA69-1D9D911CD9B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5247E03-E0A2-40E3-BA69-1D9D911CD9B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5247E03-E0A2-40E3-BA69-1D9D911CD9B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5247E03-E0A2-40E3-BA69-1D9D911CD9B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A80F4829-2011-4863-B92E-044F0BC1F641}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A80F4829-2011-4863-B92E-044F0BC1F641}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A80F4829-2011-4863-B92E-044F0BC1F641}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A80F4829-2011-4863-B92E-044F0BC1F641}.Release|Any CPU.Build.0 = Release|Any CPU
+		{626C03CA-3A74-4945-84B5-8192E77BDC9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{626C03CA-3A74-4945-84B5-8192E77BDC9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{626C03CA-3A74-4945-84B5-8192E77BDC9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{626C03CA-3A74-4945-84B5-8192E77BDC9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C274404E-1726-4778-BB0C-1F5C214A3CAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C274404E-1726-4778-BB0C-1F5C214A3CAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C274404E-1726-4778-BB0C-1F5C214A3CAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C274404E-1726-4778-BB0C-1F5C214A3CAC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A80F4829-2011-4863-B92E-044F0BC1F641} = {B6B31D6A-C090-4AFD-9512-082BBF5401C8}
+		{626C03CA-3A74-4945-84B5-8192E77BDC9D} = {B6B31D6A-C090-4AFD-9512-082BBF5401C8}
+		{C274404E-1726-4778-BB0C-1F5C214A3CAC} = {B6B31D6A-C090-4AFD-9512-082BBF5401C8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {26EC2AE6-9D80-42E1-96BE-2D41C4FAEA53}
+	EndGlobalSection
+EndGlobal

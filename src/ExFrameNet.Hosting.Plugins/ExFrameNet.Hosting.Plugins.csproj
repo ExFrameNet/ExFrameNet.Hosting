@@ -1,29 +1,25 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net6.0-windows</TargetFramework>
+		<TargetFramework>net6.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<UseWPF>true</UseWPF>
-		
 	</PropertyGroup>
 
 	<PropertyGroup>
 		<Copyright>Copyright © Yannick Schrade 2022. All rights reserved.</Copyright>
 		<RepositoryUrl>https://github.com/ExFrameNet/ExFrameNet.Hosting</RepositoryUrl>
-		<Version>0.2.0</Version>
+		<Version>0.1.0</Version>
 		<RepositoryType>git</RepositoryType>
-		<PackageTags>WPF;Hosting</PackageTags>
-		<Description>Added the ability to host a wpf app</Description>
+		<PackageTags>Hosting</PackageTags>
+		<Description>This package added the abillity to add plugins dynamicly to a hosted app at runtime</Description>
 		<Company>ExFrameNet</Company>
 		<Authors>yannickschrade</Authors>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	</PropertyGroup>
-
 	
 	<ItemGroup>
-	  <PackageReference Include="ExFrameNet.Hosting.Plugins" Version="0.1.0" />
-	  <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
+		<PackageReference Include="ExFrameNet.Hosting.Plugins.Abstraction" Version="0.1.0" />
 	</ItemGroup>
 
 </Project>
