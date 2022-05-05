@@ -37,12 +37,12 @@ jobs:
         run: dotnet pack -c release /p:VersionPrefix=${{ steps.gitversion.outputs.nuGetVersionV2 }}
             
       - name: Publish Package
-        run: dotnet nuget push **/*.nupkg --skip-duplicate -s "https://api.nuget.org/v3/index.json" -k  ${{secrets.NUGET_API_KEY}}
+        run: dotnet nuget push src/**/*.nupkg --skip-duplicate -s "https://api.nuget.org/v3/index.json" -k  ${{secrets.NUGET_API_KEY}}
 
       - name: Publish to github
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "**/*.nupkg"
+          artifacts: "src/**/*.nupkg"
           generateReleaseNotes: true
           tag: v${{ steps.gitversion.outputs.nuGetVersionV2 }}
           artifactErrorsFailBuild: true 
