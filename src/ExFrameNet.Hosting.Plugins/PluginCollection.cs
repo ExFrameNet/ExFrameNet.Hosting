@@ -4,7 +4,7 @@ using System.Collections;
 using System.Reflection;
 
 namespace ExFrameNet.Hosting.Plugins;
-internal class PluginCollection : IPluginCollection
+public sealed class PluginCollection : IPluginCollection
 {
     List<PluginDescription> _plugins = new();
 
@@ -22,6 +22,11 @@ internal class PluginCollection : IPluginCollection
         }
 
         _plugins.Add(GetPluginDescription(pluginType));
+    }
+
+    public void Add(PluginDescription pluginDescription)
+    {
+        _plugins.Add(pluginDescription);
     }
 
     public void AddFromDirectory(string directory)

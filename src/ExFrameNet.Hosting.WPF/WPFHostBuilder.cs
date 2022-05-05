@@ -1,4 +1,6 @@
-﻿using ExFrameNet.Hosting.WPF.Internal;
+﻿using ExFrameNet.Hosting.Plugins;
+using ExFrameNet.Hosting.Plugins.Abstraction;
+using ExFrameNet.Hosting.WPF.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -15,9 +17,13 @@ public class WPFHostBuilder
     private readonly List<KeyValuePair<string, string>> _hostConfigurationValues;
 
     public IServiceCollection Services { get; } = new ServiceCollection();
+
+    public IPluginCollection Plugins { get; } = new PluginCollection();
+
     public ILoggingBuilder Logging => _loggingBuilder ??= InitializeLogging();
 
     public IDictionary<object, object> Properties { get; }
+
 
     public ConfigurationManager Configuration { get; } = new ConfigurationManager();
     public HostOptions HostOptions { get; } = new HostOptions();
@@ -101,6 +107,14 @@ public class WPFHostBuilder
         });
 
         HostConfiguration.RunDeferredCallbacks(_hostBuilder);
+
+        _hostBuilder.ConfigureAndLoadPlugins(p =>
+        {
+            foreach (var plugin in Plugins)
+            {
+                p.Add(plugin);
+            }
+        });
 
         var host = new WPFHost(_hostBuilder.Build());
 

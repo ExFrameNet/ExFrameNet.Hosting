@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace ExFrameNet.Hosting.Plugins;
 
-internal class PluginManager : IPluginManager
+public sealed class PluginManager : IPluginManager
 {
     Dictionary<PluginDescription, IPlugin> _plugins = new();
 

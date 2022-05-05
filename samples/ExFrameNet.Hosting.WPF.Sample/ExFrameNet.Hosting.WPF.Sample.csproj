@@ -13,7 +13,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="ExFrameNet.Hosting.WPF" Version="0.1.0" />
+	  <ProjectReference Include="..\..\src\ExFrameNet.Hosting.WPF\ExFrameNet.Hosting.WPF.csproj" />
+	  <ProjectReference Include="..\ExFrameNet.Hosting.Plugins.Sample.Plugin\ExFrameNet.Hosting.Plugins.Sample.Plugin.csproj" />
 	</ItemGroup>
 
 </Project>

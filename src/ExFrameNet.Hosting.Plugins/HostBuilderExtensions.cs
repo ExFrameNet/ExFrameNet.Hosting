@@ -9,8 +9,6 @@ public static class HostBuilderExtensions
     public static IHostBuilder ConfigurePlugins(this IHostBuilder builder, Action<IPluginCollection> configuration)
     {
         var pluginCollection = GetPluginCollection(builder);
-        builder.ConfigureServices((context,services) 
-            => services.TryAddSingleton<IPluginManager, PluginManager>());
         configuration(pluginCollection);
 
         return builder;

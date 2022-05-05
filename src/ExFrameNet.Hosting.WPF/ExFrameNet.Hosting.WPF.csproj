@@ -11,8 +11,10 @@
 	<PropertyGroup>
 		<Copyright>Copyright © Yannick Schrade 2022. All rights reserved.</Copyright>
 		<RepositoryUrl>https://github.com/ExFrameNet/ExFrameNet.Hosting.WPF</RepositoryUrl>
+		<Version>0.2.0</Version>
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>WPF;Hosting</PackageTags>
+		<Description>Added the ability to host a wpf app</Description>
 		<Company>ExFrameNet</Company>
 		<Authors>yannickschrade</Authors>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -21,6 +23,11 @@
 	
 	<ItemGroup>
 	  <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
+	</ItemGroup>
+
+	
+	<ItemGroup>
+	  <ProjectReference Include="..\ExFrameNet.Hosting.Plugins\ExFrameNet.Hosting.Plugins.csproj" />
 	</ItemGroup>
 
 </Project>

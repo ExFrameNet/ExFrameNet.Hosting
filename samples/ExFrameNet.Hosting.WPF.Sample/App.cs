@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ExFrameNet.Hosting.Plugins.Abstraction;
+using System;
 using System.Windows;
 
 namespace ExFrameNet.Hosting.WPF.Sample;
@@ -10,10 +11,12 @@ namespace ExFrameNet.Hosting.WPF.Sample;
 public class App : Application
 {
     private readonly IServiceProvider _services;
+    private readonly IPluginManager _pluginManager;
 
-    public App(IServiceProvider serviceProvider)
+    public App(IServiceProvider serviceProvider, IPluginManager pluginManager)
     {
         _services = serviceProvider;
+        _pluginManager = pluginManager;
     }
 
     protected override void OnStartup(StartupEventArgs e)
@@ -21,5 +24,7 @@ public class App : Application
         base.OnStartup(e);
         MainWindow = new MainWindow();
         MainWindow.Show();
+        _pluginManager.InitializePlugins(_services);
+        
     }
 }
