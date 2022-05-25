@@ -10,6 +10,8 @@ public interface IPluginManager
     IEnumerable<PluginDescription> LoadedPlugins { get; }
     IPluginCollection DiscoverdPlugins { get; }
 
+    IPluginLoaderCollection PluginLoaders { get; }
+
     void LoadPlugins(IServiceProvider services);
     void RegisterPlugins(IServiceCollection services);
 }

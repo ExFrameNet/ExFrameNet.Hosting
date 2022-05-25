@@ -13,11 +13,19 @@ public static class HostBuilderExtensions
         return builder;
     }
 
+    public static IHostBuilder ConfigurePluginLoaders(this IHostBuilder builder, Action<IPluginLoaderCollection> configuration)
+    {
+        var pluginLoaderCollection = GetPluginLoaders(builder);
+        configuration(pluginLoaderCollection);
+        return builder;
+    }
+
     public static IHostBuilder LoadPlugins(this IHostBuilder builder)
     {
 
         var plugins = GetPluginCollection(builder);
-        var manager = new PluginManager(plugins);
+        var pluginLoaders = GetPluginLoaders(builder);
+        var manager = new PluginManager(plugins, pluginLoaders);
         builder.ConfigureServices((context,services) =>
         {
             if(services.Any(d => d.ImplementationType == typeof(PluginManager)))
@@ -30,6 +38,7 @@ public static class HostBuilderExtensions
 
         return builder;
     }
+
 
     public static IHostBuilder ConfigureAndLoadPlugins(this IHostBuilder builder, Action<IPluginCollection> configuration)
     {
@@ -46,5 +55,16 @@ public static class HostBuilderExtensions
         }
 
         return (IPluginCollection)pluginCollection;
+    }
+
+    private static IPluginLoaderCollection GetPluginLoaders(IHostBuilder builder)
+    {
+        if (!builder.Properties.TryGetValue("PluginLoaderCollection", out var pluginLoaderCollection))
+        {
+            pluginLoaderCollection = new PluginCollection();
+            builder.Properties["PluginLoaderCollection"] = pluginLoaderCollection;
+        }
+
+        return (IPluginLoaderCollection)pluginLoaderCollection;
     }
 }

@@ -10,12 +10,14 @@ public sealed class PluginManager : IPluginManager
     public Predicate<PluginDescription> LoadingCondition { get; set; } = _ => true;
     public IEnumerable<PluginDescription> LoadedPlugins => _plugins.Keys;
     public IPluginCollection DiscoverdPlugins { get; }
+    public IPluginLoaderCollection PluginLoaders { get; }
 
     public event EventHandler<PluginLoadedEventArgs>? PluginLoaded;
 
-    public PluginManager(IPluginCollection discoveredPlugins)
+    public PluginManager(IPluginCollection discoveredPlugins, IPluginLoaderCollection pluginLoaders)
     {
         DiscoverdPlugins = discoveredPlugins;
+        PluginLoaders = pluginLoaders;
     }
 
 
@@ -29,7 +31,8 @@ public sealed class PluginManager : IPluginManager
     {
         foreach (var (plugindescription, plugin) in _plugins)
         {
-            plugin.Initialize(services);
+            var loader = PluginLoaders.GetLoaderFor(plugin);
+            loader.LoadPlugin(plugin, services);
             OnPluginLoaded(plugindescription);
         }
     }

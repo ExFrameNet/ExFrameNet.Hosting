@@ -20,6 +20,8 @@ public class WPFHostBuilder
 
     public IPluginCollection Plugins { get; } = new PluginCollection();
 
+    public IPluginLoaderCollection PluginLoaders { get; } = new PluginLoaderCollection();
+
     public ILoggingBuilder Logging => _loggingBuilder ??= InitializeLogging();
 
     public IDictionary<object, object> Properties { get; }
@@ -107,6 +109,11 @@ public class WPFHostBuilder
         });
 
         HostConfiguration.RunDeferredCallbacks(_hostBuilder);
+
+        _hostBuilder.ConfigurePluginLoaders(l =>
+        {
+            l.AddFromCollection(PluginLoaders);
+        });
 
         _hostBuilder.ConfigureAndLoadPlugins(p =>
         {

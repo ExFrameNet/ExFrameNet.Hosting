@@ -20,10 +20,16 @@
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	</PropertyGroup>
 
+	<ItemGroup Condition="$(Configuration) == Release">
+		<PackageReference Include="ExFrameNet.Hosting.Plugins" Version="0.1.0" />
+	</ItemGroup>
 	
 	<ItemGroup>
-	  <PackageReference Include="ExFrameNet.Hosting.Plugins" Version="0.1.0" />
 	  <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
+	</ItemGroup>
+
+	<ItemGroup Condition="$(Configuration) == Debug">
+	  <ProjectReference Include="..\ExFrameNet.Hosting.Plugins\ExFrameNet.Hosting.Plugins.csproj" />
 	</ItemGroup>
 
 </Project>
