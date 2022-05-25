@@ -28,7 +28,7 @@ jobs:
         uses: actions/setup-dotnet@v2
       
       - name: Build solution
-        run: dotnet build -c release
+        run: dotnet build -c debug
       
       - name: Test solution
         run : dotnet test
