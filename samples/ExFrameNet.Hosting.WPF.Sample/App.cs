@@ -24,7 +24,7 @@ public class App : Application
         base.OnStartup(e);
         MainWindow = new MainWindow();
         MainWindow.Show();
-        _pluginManager.InitializePlugins(_services);
+        _pluginManager.LoadPlugins(_services);
         
     }
 }

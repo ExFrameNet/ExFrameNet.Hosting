@@ -61,8 +61,10 @@ public static class HostBuilderExtensions
     {
         if (!builder.Properties.TryGetValue("PluginLoaderCollection", out var pluginLoaderCollection))
         {
-            pluginLoaderCollection = new PluginCollection();
+            pluginLoaderCollection = new PluginLoaderCollection();
+            ((IPluginLoaderCollection)pluginLoaderCollection).Add(new DefaultPluginLoader());
             builder.Properties["PluginLoaderCollection"] = pluginLoaderCollection;
+
         }
 
         return (IPluginLoaderCollection)pluginLoaderCollection;
