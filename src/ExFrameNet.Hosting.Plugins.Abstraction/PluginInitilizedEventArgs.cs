@@ -1,17 +1,17 @@
 ﻿namespace ExFrameNet.Hosting.Plugins.Abstraction;
 
-public class PluginInitilizedEventArgs
+public class PluginLoadedEventArgs
 {
     public string PluginName { get; }
     public Version PluginVersion { get; }
 
-    public PluginInitilizedEventArgs(string pluginName, Version pluginVersion)
+    public PluginLoadedEventArgs(string pluginName, Version pluginVersion)
     {
         PluginName = pluginName;
         PluginVersion = pluginVersion;
     }
 
-    public PluginInitilizedEventArgs(PluginDescription description)
+    public PluginLoadedEventArgs(PluginDescription description)
     {
         PluginName = description.Name;
         PluginVersion = description.Version;
