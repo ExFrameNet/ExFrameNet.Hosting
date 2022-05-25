@@ -18,8 +18,13 @@
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	</PropertyGroup>
 	
-	<ItemGroup>
+	<ItemGroup Condition="$(Configuration) == Release">
 		<PackageReference Include="ExFrameNet.Hosting.Plugins.Abstraction" Version="0.1.0" />
+	</ItemGroup>
+	
+	
+	<ItemGroup Condition="$(Configuration) == Debug">
+	  <ProjectReference Include="..\ExFrameNet.Hosting.Plugins.Abstraction\ExFrameNet.Hosting.Plugins.Abstraction.csproj" />
 	</ItemGroup>
 
 </Project>

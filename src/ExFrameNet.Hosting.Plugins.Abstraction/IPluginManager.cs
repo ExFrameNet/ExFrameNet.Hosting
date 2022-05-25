@@ -4,11 +4,12 @@ namespace ExFrameNet.Hosting.Plugins.Abstraction;
 
 public interface IPluginManager
 {
-    event EventHandler<PluginInitilizedEventArgs>? PluginInitilized;
+    event EventHandler<PluginLoadedEventArgs>? PluginLoaded;
     
     Predicate<PluginDescription> LoadingCondition { get; set; }
     IEnumerable<PluginDescription> LoadedPlugins { get; }
     IPluginCollection DiscoverdPlugins { get; }
 
-    void InitializePlugins(IServiceProvider services);
+    void LoadPlugins(IServiceProvider services);
+    void RegisterPlugins(IServiceCollection services);
 }

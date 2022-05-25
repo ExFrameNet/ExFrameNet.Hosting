@@ -1,6 +1,5 @@
 ﻿using ExFrameNet.Hosting.Plugins.Abstraction;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 
 namespace ExFrameNet.Hosting.Plugins;
@@ -26,7 +25,7 @@ public static class HostBuilderExtensions
                 throw new InvalidOperationException("plugins already Loaded");
             }
             services.AddSingleton<IPluginManager>(manager);
-            manager.LoadPlugins(services);
+            manager.RegisterPlugins(services);
         });
 
         return builder;
