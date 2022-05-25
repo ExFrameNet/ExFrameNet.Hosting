@@ -21,8 +21,12 @@ jobs:
       - name: Setup .Net SDK
         uses: actions/setup-dotnet@v2.0.0
         
+      - name: get Version
+        id: get_version
+        uses: battila7/get-version-action@v2
+        
       - name: Pack project
-        run: dotnet pack -c release
+        run: dotnet pack -c release -p:PackageVersion={{steps.get_version.outputs.version-without-v}}
             
       - name: Publish Package
         run: dotnet nuget push src/**/*.nupkg --skip-duplicate -s "https://api.nuget.org/v3/index.json" -k  ${{secrets.NUGET_API_KEY}}
@@ -32,6 +36,5 @@ jobs:
         with:
           artifacts: "src/**/*.nupkg"
           generateReleaseNotes: true
-          tag: v${{ steps.gitversion.outputs.nuGetVersionV2 }}
           artifactErrorsFailBuild: true 
       
